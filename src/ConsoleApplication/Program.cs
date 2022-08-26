@@ -17,11 +17,16 @@ namespace ConsoleApplication
         /// <summary>
         /// Punto de entrada al programa principal.
         /// </summary>
-        public static void Main()
-        {
-            var train = new Train();
-            train.StartEngines();
-            Console.WriteLine("Hello World!");
+     ///100 instancias se pueden crear facilmente sin problema
+    ///Cuando intento crear 10.000.000 de instancias, 
+    /// llega a un numero, y se reinicia el constructor,infinitamente.
+    public static void Main()
+        {       
+            var t1 = new Train("Last Train To London");
+            var t2 = new Train("Last Train To London");
+            var t3 = new Train("Runaway Train");
+            
+            
         }
     }
 }

@@ -13,6 +13,14 @@ namespace ClassLibrary
     /// </summary>
     public class Train
     {
+        private string trainIdentifier{get;set;}  ///Esto es una variable de instancia
+        private static int count{get;set;}=0;  ///Esto es una variable de clase
+
+        public Train(string trainIdentifier){ ///Se define el constructor
+            this.trainIdentifier=trainIdentifier;
+            count+=1;   ///Cada vez que se crea un objeto, se suma uno a la cuentra de instancias
+            Console.WriteLine("Se ejecuto "+Train.count+" veces el constructor");
+        } 
         /// <summary>
         /// Obtiene un valor que indica si las maquinas del tren han sido encendidas o no.
         /// </summary>
@@ -56,5 +64,11 @@ namespace ClassLibrary
             Console.Write("The engines are already stopped");
             return this.IsEngineStarted;
         }
+        ~Train() ///Se agrega el destructor, que saca uno a la cuenta cada vez que se destruye un objeto
+        {
+            count--;
+            Console.WriteLine("Destruyendo instancias... Quedan "+count+" instancias");
+        } 
+       
     }
 }
